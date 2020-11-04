@@ -1,5 +1,5 @@
 <?php
-$title = "New Problem";
+$title = "Report Problem";
 include("components/header.php");
 ?>
 <main>

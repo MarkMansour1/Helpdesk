@@ -11,7 +11,12 @@ include("components/header.php");
 
 // Gets the correct problem using the id in the url. Replace this with a database query.
 $key = array_search($id, array_column($problems, 'id'));
-$problem = $problems[$key];
+$problem = [];
+foreach ($problems as $p) {
+    if ($p["id"] == $id) {
+        $problem = $p;
+    }
+}
 ?>
 <main>
     <div class="container">

@@ -11,13 +11,13 @@ $users = ["operator", "specialist", "admin", "analyst"];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    if (empty(trim($_POST["username"]))) {
+    if (empty($_POST["username"])) {
         $err = "Please enter your username.";
     } else {
         $username = trim($_POST["username"]);
     }
 
-    if (empty(trim($_POST["password"]))) {
+    if (empty($_POST["password"])) {
         $err = "Please enter your password.";
     } else {
         $password = trim($_POST["password"]);

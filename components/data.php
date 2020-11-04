@@ -36,21 +36,75 @@ wants to keep out illegal messages from Mexico",
     )
 ];
 
-$personnel = [
+$specialists = [
     array(
-        "id" => 184644,
+        "id" => 133614,
         "name" => "John Doe",
+        "email" => "johndoe@makeitall.com",
+        "type" => "Network",
     ),
     array(
         "id" => 578415,
         "name" => "Max Henry",
+        "email" => "maxhenry@makeitall.com",
+        "type" => "Hardware",
     ),
     array(
         "id" => 657911,
         "name" => "Jane Smith",
+        "email" => "janesmith@makeitall.com",
+        "type" => "Software",
     ),
     array(
         "id" => 321564,
         "name" => "Sam Jones",
+        "email" => "samjones@makeitall.com",
+        "type" => "Network",
     )
+];
+
+$software = [
+    array(
+        "id" => 215,
+        "author" => "Microsoft",
+        "name" => "Windows",
+        "version" => "10",
+        "type" => "Operating System",
+    ),
+    array(
+        "id" => 157,
+        "author" => "Microsoft",
+        "name" => "Word",
+        "version" => "2.4",
+        "type" => "Word Processor",
+    ),
+    array(
+        "id" => 215,
+        "author" => "Adobe",
+        "name" => "Photoshop",
+        "version" => "2020",
+        "type" => "Photo Editing",
+    ),
+];
+
+
+$hardware = [
+    array(
+        "id" => 155,
+        "manufacturer" => "HP",
+        "name" => "HU128734",
+        "type" => "Printer",
+    ),
+    array(
+        "id" => 123,
+        "manufacturer" => "Epson",
+        "name" => "V600",
+        "type" => "Scanner",
+    ),
+    array(
+        "id" => 641,
+        "manufacturer" => "Mpow",
+        "name" => "DH1874",
+        "type" => "Headset",
+    ),
 ];

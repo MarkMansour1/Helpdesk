@@ -8,7 +8,7 @@ include("components/header.php");
             <div class="card-header">
                 <h2><?php echo $title ?></h2>
                 <div>
-                    <a href="newproblem.php" class="btn">New Problem</a>
+                    <a href="report-problem.php" class="btn">Report Problem</a>
                 </div>
             </div>
             <div class="card-body">

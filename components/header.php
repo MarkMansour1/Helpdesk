@@ -24,8 +24,28 @@ $pages = [
         "users" => ["admin", "analyst", "operator"]
     ),
     array(
+        "name" => "Software",
+        "link" => "software.php",
+        "users" => ["admin", "analyst", "operator", "specialist"]
+    ),
+    array(
+        "name" => "Hardware",
+        "link" => "hardware.php",
+        "users" => ["admin", "analyst", "operator", "specialist"]
+    ),
+    array(
         "name" => "Analytics",
         "link" => "analytics.php",
+        "users" => ["admin", "analyst"]
+    ),
+    array(
+        "name" => "Operator Activity",
+        "link" => "operator-activity.php",
+        "users" => ["admin", "analyst"]
+    ),
+    array(
+        "name" => "Specialist Activity",
+        "link" => "specialist-activity.php",
         "users" => ["admin", "analyst"]
     ),
     array(
@@ -34,7 +54,6 @@ $pages = [
         "users" => ["admin"]
     )
 ];
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
