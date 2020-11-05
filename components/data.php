@@ -36,30 +36,42 @@ wants to keep out illegal messages from Mexico",
     )
 ];
 
-$specialists = [
+$personnel = [
     array(
         "id" => 133614,
         "name" => "John Doe",
         "email" => "johndoe@makeitall.com",
+        "role" => "Specialist",
         "type" => "Network",
+        "available" => true,
+        "phone" => "020 6549 5613"
     ),
     array(
         "id" => 578415,
         "name" => "Max Henry",
         "email" => "maxhenry@makeitall.com",
+        "role" => "Specialist",
         "type" => "Hardware",
+        "available" => false,
+        "phone" => "020 4521 3216"
     ),
     array(
         "id" => 657911,
         "name" => "Jane Smith",
         "email" => "janesmith@makeitall.com",
+        "role" => "Specialist",
         "type" => "Software",
+        "available" => true,
+        "phone" => "020 5496 6652"
     ),
     array(
         "id" => 321564,
         "name" => "Sam Jones",
         "email" => "samjones@makeitall.com",
+        "role" => "Specialist",
         "type" => "Network",
+        "available" => true,
+        "phone" => "020 1325 4762"
     )
 ];
 

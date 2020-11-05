@@ -66,31 +66,32 @@ $pages = [
 </head>
 
 <body>
-    <div class="primary-nav">
-        <div class="container">
-            <div class="navbar">
-                <div>
-                    <a href="index.php" class="logo">
-                        Make-It-All
-                        <span>Helpdesk</span>
-                    </a>
+    <section>
+        <div class="primary-nav">
+            <div class="container">
+                <div class="navbar">
+                    <div>
+                        <a href="index.php" class="logo">
+                            Make-It-All
+                            <span>Helpdesk</span>
+                        </a>
+                    </div>
+                    <div>
+                        <span class="text-gray-300" style="font-size: .875rem">Signed in as <?php echo $_SESSION["username"]; ?></span>
+                        <a href="php/logout.php" class="nav-link">Sign Out</a>
+                    </div>
                 </div>
-                <div>
-                    <span class="text-gray-300" style="font-size: .875rem">Signed in as <?php echo $_SESSION["username"]; ?></span>
-                    <a href="php/logout.php" class="nav-link">Sign Out</a>
-                </div>
-            </div>
-            <nav>
-                <?php
-                foreach ($pages as $page) {
-                    if (in_array(strtolower($_SESSION["username"]), $page["users"])) {
-                        if ($page["name"] == $title)
-                            echo '<a href="' . $page["link"] . '" class="nav-link active">' . $page["name"] . '</a>';
-                        else
-                            echo '<a href="' . $page["link"] . '" class="nav-link">' . $page["name"] . '</a>';
+                <nav>
+                    <?php
+                    foreach ($pages as $page) {
+                        if (in_array(strtolower($_SESSION["username"]), $page["users"])) {
+                            if ($page["name"] == $title)
+                                echo '<a href="' . $page["link"] . '" class="nav-link active">' . $page["name"] . '</a>';
+                            else
+                                echo '<a href="' . $page["link"] . '" class="nav-link">' . $page["name"] . '</a>';
+                        }
                     }
-                }
-                ?>
-            </nav>
+                    ?>
+                </nav>
+            </div>
         </div>
-    </div>
