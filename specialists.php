@@ -25,7 +25,7 @@ include("components/header.php");
                 </div>
                 <div id="filter-count"></div>
                 <div class="table-wrapper">
-                    <table class="divide-y divide-gray-200" id="filter-container">
+                    <table id="filter-container">
                         <thead>
                             <tr>
                                 <th>Name</th>
@@ -35,7 +35,7 @@ include("components/header.php");
                                 <th>Role</th>
                             </tr>
                         </thead>
-                        <tbody class="bg-white divide-y divide-gray-200">
+                        <tbody>
                             <?php
                             foreach ($personnel as $specialist) {
                                 echo '<tr class="filter-item">
@@ -49,10 +49,7 @@ include("components/header.php");
                                                 </style>
                                                 <circle class="st0" cx="92.5" cy="92.5" r="92.5"/><path class="st1" d="M92.5 109.4c31.2 0 59.1 12.9 77.7 33.3 9.4-14.4 14.8-31.7 14.8-50.2C184.9 41.4 143.5 0 92.5 0 41.4 0 0 41.4 0 92.5c0 18.5 5.4 35.7 14.8 50.2C33.4 122.3 61.3 109.4 92.5 109.4z"/><circle class="st2" cx="92.5" cy="63.5" r="31.8"/>
                                             </svg>
-                                            <div class="name" style="margin-left: 1rem">
-                                                ' . $specialist["name"] . '
-                                                <span>' . $specialist["email"] . '</span>
-                                            </div>
+                                            <div class="name" style="margin-left: 1.5rem">' . $specialist["name"] . '<span>' . $specialist["email"] . '</span></div>
                                         </div>
                                     </td>
                                     <td>' . $specialist["phone"] . '</td>

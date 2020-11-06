@@ -5,7 +5,7 @@ include("components/header.php");
 <main>
     <div class="container">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header flex ">
                 <h2><?php echo $title ?></h2>
                 <div>
                     <a href="report-problem.php" class="btn">Report Problem</a>
@@ -27,43 +27,38 @@ include("components/header.php");
                     </div>
                 </div>
                 <div id="filter-count"></div>
-                <div class="stacked-list">
-                    <ul id="filter-container">
-                        <?php
-                        foreach ($problems as $problem) {
-                            echo '
-                            <li class="filter-item">
-                                <a href="problem.php?id=' . $problem["id"] . '">
-                                    <div class="flex justify-between align-center">
-                                        <div class="item-title">
-                                        ' . $problem["description"] . '
-                                            <span>
-                                                in ' . $problem["category"] . '
-                                            </span>
-                                        </div>
+                <div class="table-wrapper">
+                    <table id="filter-container">
+                        <thead>
+                            <tr>
+                                <th>Problem</th>
+                                <th>Specialist</th>
+                                <th>Last Update</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            foreach ($problems as $problem) {
+                                echo '<tr class="filter-item">
+                                    <td>
+                                        <a href="/problem.php?id=' . $problem["id"] . '" class="text-primary-600">
+                                            ' . $problem["description"] . '
+                                            <span>in ' . $problem["category"] . '</span>
+                                        </a>
+                                    </td>
+                                    <td> ' . ($problem["specialist"] ? $problem["specialist"] : "-") . '</td>
+                                    <td>' . $problem["date"] . '</td>
+                                    <td>
                                         <div class="pill">
                                             ' . ($problem["open"] ? '<span class="green">Case Open</span>' : '<span class="red">Case Closed</span>') . '
                                         </div>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <div class="item-info">
-                                            ' . ($problem["specialist"] ? "Assigned to " . $problem["specialist"] : "Unassigned") . '
-                                        </div>
-                                        <div class="item-info">
-                                            <span>
-                                                Last update
-                                                <time datetime="">
-                                                        ' . $problem["date"] . '
-                                                </time>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            ';
-                        }
-                        ?>
-                    </ul>
+                                    </td>
+                                </tr>';
+                            }
+                            ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

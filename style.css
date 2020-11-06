@@ -171,6 +171,10 @@ table tr {
   border-bottom: 1px solid #e5e7eb;
 }
 
+table tr:hover {
+  background-color: #f5f5f7;
+}
+
 table th {
   font-weight: 500;
   font-size: 0.75rem;
@@ -189,7 +193,6 @@ table td {
   line-height: 1.25rem;
   padding: 1rem 1.5rem;
   color: #6b7280;
-  white-space: nowrap;
 }
 
 table td span {
@@ -300,12 +303,12 @@ table td span {
 }
 
 .secondary-nav a:hover {
-  background-color: #f0f2f6;
+  background-color: #f5f5f7;
 }
 
 footer {
   color: #4b5563;
-  background: #f0f2f6;
+  background: #f5f5f7;
   padding: 2rem 0;
   font-size: 0.9rem;
 }
@@ -323,8 +326,7 @@ footer a {
 }
 
 footer a:hover {
-  background-color: #d2d6dc;
-  color: black;
+  background-color: #e5e7eb;
 }
 
 footer a.active {
@@ -354,9 +356,6 @@ main {
   padding: 1.25rem 1.5rem;
   border-bottom: 1px solid #e5e7eb;
   color: #161e2e;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -367,6 +366,34 @@ main {
 
 .card .card-body {
   padding: 1.25rem 1.5rem;
+}
+
+.tabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0.5rem 0 -1px;
+}
+
+.tabs .tablink {
+  border-bottom: 2px solid transparent;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  padding: 1rem;
+  color: #6b7280;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.tabs .tablink:hover {
+  color: #4b5563;
+  border-color: #d2d6dc;
+}
+
+.tabs .tablink.active {
+  color: #5a67d8;
+  border-color: #5a67d8;
 }
 
 .pill {
@@ -536,68 +563,6 @@ header h2 {
 
 .scroll-target {
   scroll-margin-top: 2rem;
-}
-
-.stacked-list a {
-  display: block;
-  margin: 0 -1.5rem;
-  padding: 1rem 1.5rem;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.stacked-list a:hover {
-  background-color: #f0f2f6;
-}
-
-.stacked-list .list-item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 0%;
-          flex: 1 1 0%;
-  min-width: 0;
-}
-
-.stacked-list .item-title {
-  font-weight: 500;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  color: #5a67d8;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.stacked-list .item-title span {
-  color: #6b7280;
-  margin-left: 0.25rem;
-  font-weight: 400;
-}
-
-.stacked-list .item-info {
-  color: #6b7280;
-  line-height: 1.25rem;
-  font-size: 0.875rem;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-top: 0.5rem;
-}
-
-.stacked-list .item-info svg {
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-  margin-right: 0.375rem;
-  width: 1.25rem;
-  height: 1.25rem;
-  color: #9fa6b2;
 }
 
 .container {
@@ -790,11 +755,11 @@ header h2 {
 }
 
 .text-gray-100 {
-  color: #f0f2f6;
+  color: #f5f5f7;
 }
 
 .bg-gray-100 {
-  background-color: #f0f2f6;
+  background-color: #f5f5f7;
 }
 
 .text-gray-200 {

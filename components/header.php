@@ -1,17 +1,19 @@
 <?php
-// Replace with db query
+// Prototype data - replace with db queries in part 2
 include("data.php");
 
+// Gets the logged in users details from the current session if available
 session_start();
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-    // Delete these 2 lines and uncomment the next 2
+    // Logged in as admin by default during development
+    // Delete these 2 lines and uncomment the next 2 in production
     $_SESSION["loggedin"] = true;
     $_SESSION["username"] = "admin";
-
     // header("location: login.php");
     // exit;
 }
 
+// Lists the pages for navigation. The "users" array determines which user types can access that page
 $pages = [
     array(
         "name" => "Problems",
@@ -24,13 +26,8 @@ $pages = [
         "users" => ["admin", "analyst", "operator"]
     ),
     array(
-        "name" => "Software",
-        "link" => "software.php",
-        "users" => ["admin", "analyst", "operator", "specialist"]
-    ),
-    array(
-        "name" => "Hardware",
-        "link" => "hardware.php",
+        "name" => "Company Equipment",
+        "link" => "company-equipment.php",
         "users" => ["admin", "analyst", "operator", "specialist"]
     ),
     array(
@@ -48,11 +45,6 @@ $pages = [
         "link" => "specialist-activity.php",
         "users" => ["admin", "analyst"]
     ),
-    array(
-        "name" => "Settings",
-        "link" => "settings.php",
-        "users" => ["admin"]
-    )
 ];
 ?>
 <!DOCTYPE html>
@@ -83,6 +75,7 @@ $pages = [
                 </div>
                 <nav>
                     <?php
+                    // Adds all the pages that the user currently logged in has access to to the navigation
                     foreach ($pages as $page) {
                         if (in_array(strtolower($_SESSION["username"]), $page["users"])) {
                             if ($page["name"] == $title)
