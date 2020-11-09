@@ -81,6 +81,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
     </div>
-    <?php
-    include("components/footer.php");
-    ?>
+    </section>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+</body>
+
+</html>

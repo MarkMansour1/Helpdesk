@@ -5,12 +5,8 @@ include("data.php");
 // Gets the logged in users details from the current session if available
 session_start();
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-    // Logged in as admin by default during development
-    // Delete these 2 lines and uncomment the next 2 in production
-    $_SESSION["loggedin"] = true;
-    $_SESSION["username"] = "admin";
-    // header("location: login.php");
-    // exit;
+    header("location: login.php");
+    exit;
 }
 
 // Lists the pages for navigation. The "users" array determines which user types can access that page
