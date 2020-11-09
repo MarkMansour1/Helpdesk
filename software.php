@@ -72,6 +72,13 @@ foreach ($software as $s) {
                                 <label for="licenseend">License end date</label>
                                 <input type="text" name="licenseend" value="17-03-2025">
                             </div>
+                            <div class="form-group">
+                                <label for="role">Development Location</label>
+                                <select id="role" name="role">
+                                    <option value="in-house">In House</option>
+                                    <option value="out-of-house">Out of House</option>
+                                </select>
+                            </div>
                             <button type="submit" class="btn">
                                 Save Changes
                             </button>

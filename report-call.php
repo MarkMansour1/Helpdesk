@@ -42,10 +42,18 @@ include("components/header.php");
                             </div>
                             <div class="form-group">
                                 <label for="call-reason">Reason for Call</label>
-                                <textarea name="call-reason" rows="3"></textarea>
+                                <select id="call-reason" name="call-reason">
+                                    <option value="new-problem">Reporting a new problem</option>
+                                    <option value="existing-problem">Discussing existing problem</option>
+                                    <option value="other">Other</option>
+                                </select>
                             </div>
                             <div class="form-group">
-                                <label for="notes">Notes</label>
+                                <label for="notes">Problem Number (if problem already exists)</label>
+                                <input type="text" name="call">
+                            </div>
+                            <div class="form-group">
+                                <label for="notes">Notes (optional)</label>
                                 <textarea name="notes" rows="3"></textarea>
                             </div>
                             <button type="submit" class="btn btn-lg">

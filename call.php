@@ -56,8 +56,12 @@ foreach ($calls as $c) {
                                 <input type="text" name="date" value="Oct 3 2016">
                             </div>
                             <div class="form-group">
-                                <label for="time">Time</label>
-                                <input type="text" name="time" value="9am">
+                                <label for="call-reason">Reason for Call</label>
+                                <select id="call-reason" name="call-reason">
+                                    <option value="new-problem">Reporting a new problem</option>
+                                    <option value="existing-problem">Discussing existing problem</option>
+                                    <option value="other">Other</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="problem">Problem Number</label>
@@ -71,7 +75,7 @@ foreach ($calls as $c) {
                                 <label for="notes">Notes</label>
                                 <textarea name="notes" rows="3"></textarea>
                             </div>
-                            <button type="submit" class="btn">
+                            <button type="submit" class="btn btn-lg">
                                 Save Changes
                             </button>
                         </form>

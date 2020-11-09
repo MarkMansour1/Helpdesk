@@ -76,6 +76,7 @@ foreach ($problems as $p) {
                                     <option value="unsolved">Unsolved</option>
                                     <option value="solution-suggested">Solution Suggested</option>
                                     <option value="solved">Solved</option>
+                                    <option value="invalid">Invalid</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -114,7 +115,7 @@ foreach ($problems as $p) {
                 </div>
                 <div class="card scroll-target" id="update">
                     <div class="card-header">
-                        <h3>Add New Update</h3>
+                        <h3>New Update</h3>
                     </div>
                     <div class="card-body">
                         <form action="#" class="form-cols">
