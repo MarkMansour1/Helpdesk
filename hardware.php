@@ -34,6 +34,7 @@ foreach ($hardware as $s) {
                 <nav class="secondary-nav">
                     <a href="#"><?php echo $title ?></a>
                     <a href="#details">Hardware Details</a>
+                    <a href="#delete">Delete Hardware</a>
                 </nav>
             </div>
             <div class="col-3">
@@ -71,8 +72,24 @@ foreach ($hardware as $s) {
                                 <label for="warrantyend">Warranty end date</label>
                                 <input type="text" name="warrantyend" value="08-03-2021">
                             </div>
-                            <button type="submit" class="btn btn-lg">
+                            <button type="submit" class="btn">
                                 Save Changes
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="card scroll-target" id="delete">
+                    <div class="card-header">
+                        <h3>Delete Hardware</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="#" class="form-cols">
+                            <div class="form-group">
+                                <label for="delete">Enter the serial number to confirm deletion</label>
+                                <input type="text" name="delete">
+                            </div>
+                            <button type="submit" class="btn btn-red">
+                                Delete Hardware
                             </button>
                         </form>
                     </div>

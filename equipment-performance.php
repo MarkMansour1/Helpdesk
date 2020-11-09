@@ -88,7 +88,7 @@ include("components/header.php");
                 </div>
                 <div class="card col-3">
                     <div class="card-header">
-                        <h3>Software that has the most difficult problems to solve</h3>
+                        <h3>Software with the most difficult problems to solve</h3>
                     </div>
                     <div class="card-body">
                         <ol>
@@ -157,7 +157,7 @@ include("components/header.php");
             <div class="grid cols-6">
                 <div class="card col-3">
                     <div class="card-header">
-                        <h3>Most unreliable hardawre</h3>
+                        <h3>Most unreliable hardware</h3>
                     </div>
                     <div class="card-body">
                         <ol>
@@ -176,7 +176,7 @@ include("components/header.php");
                 </div>
                 <div class="card col-3">
                     <div class="card-header">
-                        <h3>Software that has the most difficult problems to solve</h3>
+                        <h3>Hardware with the most difficult problems to solve</h3>
                     </div>
                     <div class="card-body">
                         <ol>

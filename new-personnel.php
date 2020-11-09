@@ -1,21 +1,6 @@
 <?php
-// Gets the problem ID from the url
-if (isset($_GET["id"]))
-    $id = $_GET["id"];
-else
-    // header("location: index.php");
-    $id = 1;
-
-$title = "Employee " . $id;
+$title = "Add New Personnel";
 include("components/header.php");
-
-// Gets the correct problem using the id in the url. Replace this with a database query.
-$employee = [];
-foreach ($personnel as $p) {
-    if ($p["id"] == $id) {
-        $employee = $p;
-    }
-}
 ?>
 <main>
     <div class="container">
@@ -33,48 +18,43 @@ foreach ($personnel as $p) {
             <div style="max-width: 80%">
                 <nav class="secondary-nav">
                     <a href="#"><?php echo $title ?></a>
-                    <a href="#details">Employee Details</a>
-                    <a href="#delete">Delete Employee</a>
+                    <a href="#caller">New Personnel Details</a>
                 </nav>
             </div>
             <div class="col-3">
                 <div class="card scroll-target" id="details">
                     <div class="card-header">
-                        <h3>Employee Details</h3>
+                        <h3>New Personnel Details</h3>
                     </div>
                     <div class="card-body">
                         <form action="#" class="form-cols">
-                            <div class="form-group">
-                                <label for="id">Staff ID</label>
-                                <input type="text" name="id" value="<?php echo $id ?>" disabled>
-                            </div>
-                            <div class="form-group">
+			<div class="form-group">
                                 <label for="name">Name</label>
-                                <input type="text" name="name" value="John Doe">
+                                <input type="text" name="name">
                             </div>
                             <div class="form-group">
                                 <label for="phone">Phone Number</label>
-                                <input type="text" name="phone" value="020 6549 5613">
+                                <input type="text" name="phone">
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" name="email" value="johndoe@makeitall.com">
+                                <input type="email" name="email">
                             </div>
                             <div class="form-group">
                                 <label for="jobTitle">Job Title</label>
-                                <input type="text" name="jobTitle" value="Software Developer">
+                                <input type="text" name="jobTitle">
                             </div>
                             <div class="form-group">
                                 <label for="department">Department</label>
-                                <input type="text" name="department" value="Research and Development">
+                                <input type="text" name="department">
                             </div>
                             <div class="form-group">
                                 <label for="country">Country</label>
-                                <input type="text" name="country" value="UK">
+                                <input type="text" name="country">
                             </div>
                             <div class="form-group">
                                 <label for="postcode">Postcode</label>
-                                <input type="text" name="country" value="RE11 3U4">
+                                <input type="text" name="country">
                             </div>
                             <div class="form-group">
                                 <label for="role">Role</label>
@@ -93,24 +73,8 @@ foreach ($personnel as $p) {
                                     <option value="unavailable">Unavailable</option>
                                 </select>
                             </div>
-                            <button type="submit" class="btn">
-                                Save Changes
-                            </button>
-                        </form>
-                    </div>
-                </div>
-                <div class="card scroll-target" id="delete">
-                    <div class="card-header">
-                        <h3>Delete Employee</h3>
-                    </div>
-                    <div class="card-body">
-                        <form action="#" class="form-cols">
-                            <div class="form-group">
-                                <label for="delete">Enter the employee ID to confirm deletion</label>
-                                <input type="text" name="delete">
-                            </div>
-                            <button type="submit" class="btn btn-red">
-                                Delete Employee
+                            <button type="submit" class="btn btn-lg">
+                                Add New Employee
                             </button>
                         </form>
                     </div>

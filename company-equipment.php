@@ -6,7 +6,17 @@ include("components/header.php");
     <div class="container">
         <div class="card">
             <div class="card-header" style="padding-bottom: 0">
-                <h2><?php echo $title ?></h2>
+                <div class="flex justify-between align-center">
+                    <h2><?php echo $title ?></h2>
+                    <?php
+                    if (strtoLower($_SESSION["username"]) === "admin") {
+                        echo '<div>
+                        <a href="new-software.php" class="btn" style="display: inline">Add New Software</a>
+                        <a href="new-hardware.php" class="btn" style="display: inline">Add New Hardware</a>
+                    </div>';
+                    }
+                    ?>
+                </div>
                 <nav class="tabs">
                     <a class="tablink active" onclick="changeTab(event, 'software')">
                         Software
@@ -51,7 +61,7 @@ include("components/header.php");
                                 foreach ($software as $sw) {
                                     echo '<tr class="filter-item">
                                     <td class="text-gray-900">
-                                        ' . (strToLower($_SESSION["username"]) === "admin" ? '<a href="software.php?serial=' . $sw["serial number"] . '" class="text-primary-600">' . $sw["serial number"] . '</a>' : ' . $person["name"] . ') . '
+                                        ' . (strToLower($_SESSION["username"]) === "admin" ? '<a href="software.php?serial=' . $sw["serial number"] . '" class="text-primary-600">' . $sw["serial number"] . '</a>' : $sw["serial number"]) . '
                                     </td>
                                     <td>' . $sw["type"] . '</td>
                                     <td>' . $sw["make"] . '</td>
@@ -82,7 +92,8 @@ include("components/header.php");
                                 foreach ($hardware as $hw) {
                                     echo '<tr class="filter-item">
                                    <td class="text-gray-900">
-                                        ' . (strToLower($_SESSION["username"]) === "admin" ? '<a href="hardware.php?serial=' . $hw["serial number"] . '" class="text-primary-600">' . $hw["serial number"] . '</a>' : ' . $person["name"] . ') . '
+                                        ' . (strToLower($_SESSION["username"]) === "admin" ? '<a href="hardware.php?serial=' . $hw["serial number"] . '" class="text-primary-600">' . $hw["serial number"] . '</a>' :
+                                        $hw["serial number"]) . '
                                     </td>
                                     <td>' . $hw["type"] . '</td>
                                     <td>' . $hw["make"] . '</td>

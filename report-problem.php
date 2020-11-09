@@ -57,7 +57,7 @@ include("components/header.php");
                             </div>
                             <div class="form-group">
                                 <label for="local-specialist-needed">Is Local Specialist Needed</label>
-                                <input type="checkbox" name="local-specialist-needed" value="change to tick box">
+                                <input type="checkbox" name="local-specialist-needed">
                             </div>
                             <div class="form-group">
                                 <label for="notes">Notes</label>

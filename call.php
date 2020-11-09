@@ -71,7 +71,7 @@ foreach ($calls as $c) {
                                 <label for="notes">Notes</label>
                                 <textarea name="notes" rows="3"></textarea>
                             </div>
-                            <button type="submit" class="btn btn-lg">
+                            <button type="submit" class="btn">
                                 Save Changes
                             </button>
                         </form>

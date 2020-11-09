@@ -5,8 +5,15 @@ include("components/header.php");
 <main>
     <div class="container">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header flex">
                 <h2><?php echo $title ?></h2>
+                <?php
+                if (strtoLower($_SESSION["username"]) === "admin") {
+                    echo '<div>
+                        <a href="new-personnel.php" class="btn">Add New Personnel</a>
+                    </div>';
+                }
+                ?>
             </div>
             <div class="card-body">
                 <div class="input-group-wrapper">
@@ -57,7 +64,7 @@ include("components/header.php");
                                                 <circle class="st0" cx="92.5" cy="92.5" r="92.5"/><path class="st1" d="M92.5 109.4c31.2 0 59.1 12.9 77.7 33.3 9.4-14.4 14.8-31.7 14.8-50.2C184.9 41.4 143.5 0 92.5 0 41.4 0 0 41.4 0 92.5c0 18.5 5.4 35.7 14.8 50.2C33.4 122.3 61.3 109.4 92.5 109.4z"/><circle class="st2" cx="92.5" cy="63.5" r="31.8"/>
                                             </svg>
                                             <div class="name" style="margin-left: 1.5rem">
-                                            ' . (strToLower($_SESSION["username"]) === "admin" ? '<a href="employee.php?id=' . $person["id"] . '" class="text-primary-600">' . $person["name"] . '</a>' : ' . $person["name"] . ') . '
+                                            ' . (strToLower($_SESSION["username"]) === "admin" ? '<a href="employee.php?id=' . $person["id"] . '" class="text-primary-600">' . $person["name"] . '</a>' : $person["name"]) . '
                                             <span>ID: ' . $person["id"] . '</span></div>
                                         </div>
                                     </td>

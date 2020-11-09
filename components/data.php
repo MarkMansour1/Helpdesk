@@ -47,7 +47,7 @@ wants to keep out illegal messages from Mexico",
         "open" => false,
         "problem-priority" => "High",
         "problem-type" => "Network - Security Breach",
-        "status" => 0
+        "status" => 2
     ),
     array(
         "problemNumber" => 326,
@@ -72,7 +72,7 @@ wants to keep out illegal messages from Mexico",
         "open" => false,
         "problem-priority" => "Low",
         "problem-type" => "Hardware - Laptop Computer",
-        "status" => 0
+        "status" => 3
     ),
     array(
         "problemNumber" => 327,
@@ -84,7 +84,7 @@ wants to keep out illegal messages from Mexico",
         "open" => true,
         "problem-priority" => "Low",
         "problem-type" => "Hardware - Laptop Computer",
-        "status" => 2
+        "status" => 0
     )
 ];
 

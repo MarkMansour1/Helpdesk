@@ -25,60 +25,98 @@ include("components/header.php");
                             </div>
                         </dd>
                     </dl>
-                    <a href="problems.php" class="btn btn-primary mx-auto w-50">
+                    <a href="problems.php" class="btn mx-auto w-50">
                         View Problems
                     </a>
                 </div>
             </div>
-            <div class="card text-center">
-                <div class="card-body">
-                    <dl>
-                        <dt>
-                            Most recent call searched:
-                        </dt>
-                        <dd>
-                            <div>
-                                111
-                            </div>
-                        </dd>
-                    </dl>
-                    <a href="calls.php" class="btn btn-primary mx-auto w-50">
-                        View Calls
-                    </a>
+            <?php
+            if (strtoLower($_SESSION["username"]) !== "specialist") {
+                echo '
+                 <div class="card text-center">
+                    <div class="card-body">
+                        <dl>
+                            <dt>
+                                Most recent call searched:
+                            </dt>
+                            <dd>
+                                <div>
+                                    111
+                                </div>
+                            </dd>
+                        </dl>
+                        <a href="calls.php" class="btn mx-auto w-50">
+                            View Calls
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="card text-center">
-                <div class="card-body">
-                    <dl>
-                        <dt>
-                            Most productive Helpdesk Operator
-                        </dt>
-                        <dd>
-                            <div>
-                                445445
-                            </div>
-                        </dd>
-                    </dl>
-                    <dl>
-                        <dt>
-                            Most productive Technical Sepcialist
-                        </dt>
-                        <dd>
-                            <div>
-                                781365
-                            </div>
-                        </dd>
-                    </dl>
-                    <a href="staff-performance.php" class="btn btn-primary mx-auto w-50">
-                        View Staff Performance
-                    </a>
+                ';
+            }
+
+            if (strtoLower($_SESSION["username"]) === "admin" || strtoLower($_SESSION["username"]) === "analyst") {
+                echo '
+                 <div class="card text-center">
+                    <div class="card-body">
+                        <dl>
+                            <dt>
+                                Most productive Helpdesk Operator
+                            </dt>
+                            <dd>
+                                <div>
+                                    445445
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                Most productive Technical Sepcialist
+                            </dt>
+                            <dd>
+                                <div>
+                                    781365
+                                </div>
+                            </dd>
+                        </dl>
+                        <a href="staff-performance.php" class="btn mx-auto w-50">
+                            View Staff Performance
+                        </a>
+                    </div>
                 </div>
-            </div>
+                <div class="card text-center">
+                    <div class="card-body">
+                        <dl>
+                            <dt>
+                                Number of equipment working
+                            </dt>
+                            <dd>
+                                <div>
+                                    789
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                Number of equipment not working
+                            </dt>
+                            <dd>
+                                <div>
+                                    102
+                                </div>
+                            </dd>
+                        </dl>
+                        <a href="equipment-performance.php" class="btn mx-auto w-50">
+                            View Equipment Performance
+                        </a>
+                    </div>
+                </div>
+                ';
+            }
+            ?>
             <div class="card text-center">
                 <div class="card-body">
                     <dl>
                         <dt>
-                            Most recent peice of equipment searched by the user
+                            Most recent piece of equipment searched by the user
                         </dt>
                         <dd>
                             <div>
@@ -86,74 +124,51 @@ include("components/header.php");
                             </div>
                         </dd>
                     </dl>
-                    <a href="company-equipment.php" class="btn btn-primary mx-auto w-50">
+                    <a href="company-equipment.php" class="btn mx-auto w-50">
                         View Company Equipment
                     </a>
                 </div>
             </div>
-        </div>
-        <div class="grid cols-3">
-            <div class="card text-center">
-                <div class="card-body">
-                    <dl>
-                        <dt>
-                            Problem number of the most recent problem to be reported
-                        </dt>
-                        <dd>
-                            <div>
-                                158
-                            </div>
-                        </dd>
-                    </dl>
-                    <a href="report-problem.php" class="btn btn-primary mx-auto w-50">
-                        Report A Problem
-                    </a>
+            <?php
+            if (strtoLower($_SESSION["username"]) === "admin" || strtoLower($_SESSION["username"]) === "operator") {
+                echo '
+                 <div class="card text-center">
+                    <div class="card-body">
+                        <dl>
+                            <dt>
+                                Problem number of the most recent problem to be reported
+                            </dt>
+                            <dd>
+                                <div>
+                                    158
+                                </div>
+                            </dd>
+                        </dl>
+                        <a href="report-problem.php" class="btn mx-auto w-50">
+                            Report A Problem
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="card text-center">
-                <div class="card-body">
-                    <dl>
-                        <dt>
-                            Problem number of the most recent call to be reported
-                        </dt>
-                        <dd>
-                            <div>
-                                148
-                            </div>
-                        </dd>
-                    </dl>
-                    <a href="report-call.php" class="btn btn-primary mx-auto w-50">
-                        Report A Call
-                    </a>
+                <div class="card text-center">
+                    <div class="card-body">
+                        <dl>
+                            <dt>
+                                Problem number of the most recent call to be reported
+                            </dt>
+                            <dd>
+                                <div>
+                                    148
+                                </div>
+                            </dd>
+                        </dl>
+                        <a href="report-call.php" class="btn mx-auto w-50">
+                            Report A Call
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="card text-center">
-                <div class="card-body">
-                    <dl>
-                        <dt>
-                            Number of equipment working
-                        </dt>
-                        <dd>
-                            <div>
-                                789
-                            </div>
-                        </dd>
-                    </dl>
-                    <dl>
-                        <dt>
-                            Number of equipment not working
-                        </dt>
-                        <dd>
-                            <div>
-                                102
-                            </div>
-                        </dd>
-                    </dl>
-                    <a href="equipment-performance.php" class="btn btn-primary mx-auto w-50">
-                        View Equipment Performance
-                    </a>
-                </div>
-            </div>
+                ';
+            }
+            ?>
         </div>
         <div class="grid cols-4 scroll-target" id="settings">
             <div style="max-width: 80%">
@@ -223,7 +238,7 @@ include("components/header.php");
                                         <option value="active">Active</option>
                                     </select>
                                 </div>
-                                <button type="submit" class="btn btn-lg">
+                                <button type="submit" class="btn">
                                     Update Availability
                                 </button>
                             </form>
@@ -250,7 +265,7 @@ include("components/header.php");
                                 <label for="confirmpassword">Confirm New Password</label>
                                 <input type="text" name="confirmpassword">
                             </div>
-                            <button type="submit" class="btn btn-lg">
+                            <button type="submit" class="btn">
                                 Change Password
                             </button>
                         </form>

@@ -7,9 +7,13 @@ include("components/header.php");
         <div class="card">
             <div class="card-header flex ">
                 <h2><?php echo $title ?></h2>
-                <div>
-                    <a href="report-call.php" class="btn">Report Call</a>
-                </div>
+                <?php
+                if (strtoLower($_SESSION["username"]) === "operator" || strtoLower($_SESSION["username"]) === "admin") {
+                    echo '<div>
+                            <a href="report-call.php" class="btn">Report Call</a>
+                        </div>';
+                }
+                ?>
             </div>
             <div class="card-body">
                 <div class="input-group-wrapper">

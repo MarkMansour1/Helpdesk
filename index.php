@@ -5,11 +5,25 @@ include("components/header.php");
 <main>
     <div class="container">
         <div class="card">
-            <div class="card-header flex ">
-                <h2><?php echo $title ?></h2>
-                <div>
-                    <a href="report-problem.php" class="btn">Report Problem</a>
+            <div class="card-header" style="padding-bottom: 0">
+                <div class="flex justify-between align-center">
+                    <h2><?php echo $title ?></h2>
+                    <?php
+                    if (strtoLower($_SESSION["username"]) === "operator" || strtoLower($_SESSION["username"]) === "admin") {
+                        echo '<div>
+                            <a href="report-problem.php" class="btn">Report Problem</a>
+                        </div>';
+                    }
+                    ?>
                 </div>
+                <nav class="tabs">
+                    <a class="tablink active" onclick="changeTab(event, 'open')">
+                        Open
+                    </a>
+                    <a class="tablink" onclick="changeTab(event, 'closed')">
+                        Closed
+                    </a>
+                </nav>
             </div>
             <div class="card-body">
                 <div class="input-group-wrapper">
@@ -27,43 +41,89 @@ include("components/header.php");
                     </div>
                 </div>
                 <div id="filter-count"></div>
-                <div class="table-wrapper">
-                    <table id="filter-container">
-                        <thead>
-                            <tr>
-                                <th>Problem</th>
-                                <th>Type</th>
-                                <th>Specialist</th>
-                                <th>Last Update</th>
-                                <th>Status</th>
-                                <th>Priority</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            $statuses = array(
-                                "Solved",
-                                "Solution Suggested",
-                                "Unsolved"
-                            );
-                            foreach ($problems as $problem) {
-                                echo '<tr class="filter-item">
-                                    <td>
-                                    <a href="problem.php?problemNumber=' . $problem["problemNumber"] . '" class="text-primary-600">
-                                    ' . $problem["description"] . '
-                                    <span>Problem ' . $problem["problemNumber"] . '</span>
-                                    </a>
-                                    </td>
-                                    <td>' . $problem["type"] . '</td>
-                                    <td> ' . ($problem["specialist"] ? $problem["specialist"] : "-") . '</td>
-                                    <td>' . $problem["date"] . '</td>
-                                    <td>' . $statuses[$problem["status"]] . '</td>
-                                    <td><div class="pill">' . (strtoLower($problem["problem-priority"]) === "high" ? '<span class="red">High</span>' : '<span class="green">Low</span>') . '</div></td>
-                                </tr>';
-                            }
-                            ?>
-                        </tbody>
-                    </table>
+                <div class="table-wrapper" id="filter-container">
+                    <div class="tab" id="open">
+                        <table id="filter-container">
+                            <thead>
+                                <tr>
+                                    <th>Problem</th>
+                                    <th>Type</th>
+                                    <th>Specialist</th>
+                                    <th>Last Update</th>
+                                    <th>Status</th>
+                                    <th>Priority</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $statuses = array(
+                                    "Solved",
+                                    "Solution Suggested",
+                                    "Unsolved",
+                                    "Invalid",
+                                );
+                                foreach ($problems as $problem) {
+                                    if ($problem["status"] === 1 || $problem["status"] === 2) {
+                                        echo '<tr class="filter-item">
+                                        <td>
+                                        <a href="problem.php?problemNumber=' . $problem["problemNumber"] . '" class="text-primary-600">
+                                        ' . $problem["description"] . '
+                                        <span>Problem ' . $problem["problemNumber"] . '</span>
+                                        </a>
+                                        </td>
+                                        <td>' . $problem["type"] . '</td>
+                                        <td> ' . ($problem["specialist"] ? $problem["specialist"] : "-") . '</td>
+                                        <td>' . $problem["date"] . '</td>
+                                        <td>' . $statuses[$problem["status"]] . '</td>
+                                        <td><div class="pill">' . (strtoLower($problem["problem-priority"]) === "high" ? '<span class="red">High</span>' : '<span class="green">Low</span>') . '</div></td>
+                                    </tr>';
+                                    }
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tab" id="closed" style="display: none">
+                        <table id="filter-container">
+                            <thead>
+                                <tr>
+                                    <th>Problem</th>
+                                    <th>Type</th>
+                                    <th>Specialist</th>
+                                    <th>Last Update</th>
+                                    <th>Status</th>
+                                    <th>Priority</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $statuses = array(
+                                    "Solved",
+                                    "Solution Suggested",
+                                    "Unsolved",
+                                    "Invalid",
+                                );
+                                foreach ($problems as $problem) {
+                                    if ($problem["status"] === 0 || $problem["status"] === 3) {
+                                        echo '<tr class="filter-item">
+                                        <td>
+                                        <a href="problem.php?problemNumber=' . $problem["problemNumber"] . '" class="text-primary-600">
+                                        ' . $problem["description"] . '
+                                        <span>Problem ' . $problem["problemNumber"] . '</span>
+                                        </a>
+                                        </td>
+                                        <td>' . $problem["type"] . '</td>
+                                        <td> ' . ($problem["specialist"] ? $problem["specialist"] : "-") . '</td>
+                                        <td>' . $problem["date"] . '</td>
+                                        <td>' . $statuses[$problem["status"]] . '</td>
+                                        <td><div class="pill">' . (strtoLower($problem["problem-priority"]) === "high" ? '<span class="red">High</span>' : '<span class="green">Low</span>') . '</div></td>
+                                    </tr>';
+                                    }
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

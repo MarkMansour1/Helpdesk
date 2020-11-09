@@ -36,6 +36,7 @@ foreach ($problems as $p) {
                     <a href="#details">Problem Details</a>
                     <a href="#notes">Problem Notes</a>
                     <a href="#update">New Update</a>
+                    <a href="#reassign">Reassign Problem</a>
                 </nav>
             </div>
             <div class="col-3">
@@ -69,9 +70,6 @@ foreach ($problems as $p) {
                                 <label for="description">Problem description</label>
                                 <textarea name="description" rows="3">Laptop running very slowly</textarea>
                             </div>
-
-
-                            <!--                           Change from text to drop down box  -->
                             <div class="form-group">
                                 <label for="problem-state">Problem State</label>
                                 <select id="problem-state" name="problem-states">
@@ -116,7 +114,7 @@ foreach ($problems as $p) {
                 </div>
                 <div class="card scroll-target" id="update">
                     <div class="card-header">
-                        <h3>New Update</h3>
+                        <h3>Add New Update</h3>
                     </div>
                     <div class="card-body">
                         <form action="#" class="form-cols">
@@ -126,6 +124,26 @@ foreach ($problems as $p) {
                             </div>
                             <button type="submit" class="btn btn-lg">
                                 Add Update
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="card scroll-target" id="reassign">
+                    <div class="card-header">
+                        <h3>Request Problem Reassignment</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="#" class="form-cols">
+                            <div class="form-group">
+                                <label for="newspecialist">Specialist ID</label>
+                                <input type="text" name="newspecialist">
+                            </div>
+                            <div class="form-group">
+                                <label for="reason">Reason for reassignment</label>
+                                <textarea name="reason" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-lg">
+                                Submit Request
                             </button>
                         </form>
                     </div>
