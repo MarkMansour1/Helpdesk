@@ -1,19 +1,19 @@
 <?php
 // Gets the problem ID from the url
-if (isset($_GET["serial"]))
-    $serial = $_GET["serial"];
+if (isset($_GET["code"]))
+    $code = $_GET["code"];
 else
     // header("location: index.php");
-    $serial = 1;
+    $code = 1;
 
-$title = "Software " . $serial;
+$title = "Call " . $code;
 include("components/header.php");
 
 // Gets the correct problem using the id in the url. Replace this with a database query.
-$software = [];
-foreach ($software as $s) {
-    if ($s["id"] == $id) {
-        $software = $s;
+$call = [];
+foreach ($calls as $c) {
+    if ($c["call code"] == $code) {
+        $call = $c;
     }
 }
 ?>
@@ -26,50 +26,50 @@ foreach ($software as $s) {
                 </h2>
             </div>
             <div class="card-body">
-                <a href="company-equipment.php" class="text-gray-500"><?php echo "<-" ?> Back to all equipment</a>
+                <a href="calls.php" class="text-gray-500"><?php echo "<-" ?> Back to all calls</a>
             </div>
         </header>
         <div class="grid cols-4">
             <div style="max-width: 80%">
                 <nav class="secondary-nav">
                     <a href="#"><?php echo $title ?></a>
-                    <a href="#details">Software Details</a>
+                    <a href="#details">Call Details</a>
                 </nav>
             </div>
             <div class="col-3">
                 <div class="card scroll-target" id="details">
                     <div class="card-header">
-                        <h3>Software Details</h3>
+                        <h3>Call Details</h3>
                     </div>
                     <div class="card-body">
                         <form action="#" class="form-cols">
                             <div class="form-group">
-                                <label for="id">Serial Number</label>
-                                <input type="text" name="id" value="<?php echo $serial ?>" disabled>
+                                <label for="code">Call Code</label>
+                                <input type="text" name="code" value="<?php echo $code ?>" disabled>
                             </div>
                             <div class="form-group">
-                                <label for="type">Type</label>
-                                <input type="text" name="type" value="Operating System">
+                                <label for="caller">Caller</label>
+                                <input type="text" name="caller" value="546791">
                             </div>
                             <div class="form-group">
-                                <label for="make">Make</label>
-                                <input type="text" name="make" value="Microsoft">
+                                <label for="date">Date</label>
+                                <input type="text" name="date" value="Oct 3 2016">
                             </div>
                             <div class="form-group">
-                                <label for="model">Model</label>
-                                <input type="text" name="model" value="Windows 10">
+                                <label for="time">Time</label>
+                                <input type="text" name="time" value="9am">
                             </div>
                             <div class="form-group">
-                                <label for="version">Version</label>
-                                <input type="text" name="version" value="3.4">
+                                <label for="problem">Problem Number</label>
+                                <input type="text" name="problem" value="325">
                             </div>
                             <div class="form-group">
-                                <label for="licensestart">License start date</label>
-                                <input type="text" name="licensestart" value="17-03-2015">
+                                <label for="reason">Reason</label>
+                                <textarea name="reason" rows="3">Laptop running very slowly</textarea>
                             </div>
                             <div class="form-group">
-                                <label for="licenseend">License end date</label>
-                                <input type="text" name="licenseend" value="17-03-2025">
+                                <label for="notes">Notes</label>
+                                <textarea name="notes" rows="3"></textarea>
                             </div>
                             <button type="submit" class="btn btn-lg">
                                 Save Changes

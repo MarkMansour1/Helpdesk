@@ -1,5 +1,5 @@
 <?php
-$title = "Specialists";
+$title = "Personnel";
 include("components/header.php");
 ?>
 <main>
@@ -30,14 +30,21 @@ include("components/header.php");
                             <tr>
                                 <th>Name</th>
                                 <th>Phone</th>
-                                <th>Department</th>
-                                <th>Availability</th>
+                                <th>Email</th>
+                                <th>Job Title</th>
+                                <th>Branch Location</th>
                                 <th>Role</th>
+                                <th>Availability</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            foreach ($personnel as $specialist) {
+                            $statuses = array(
+                                '<span class="green">Active</span>',
+                                '<span class="orange">Inactive</span>',
+                                '<span class="red">Unavailable</span>'
+                            );
+                            foreach ($personnel as $person) {
                                 echo '<tr class="filter-item">
                                     <td class="text-gray-900">
                                         <div class="flex align-center">                   
@@ -49,15 +56,19 @@ include("components/header.php");
                                                 </style>
                                                 <circle class="st0" cx="92.5" cy="92.5" r="92.5"/><path class="st1" d="M92.5 109.4c31.2 0 59.1 12.9 77.7 33.3 9.4-14.4 14.8-31.7 14.8-50.2C184.9 41.4 143.5 0 92.5 0 41.4 0 0 41.4 0 92.5c0 18.5 5.4 35.7 14.8 50.2C33.4 122.3 61.3 109.4 92.5 109.4z"/><circle class="st2" cx="92.5" cy="63.5" r="31.8"/>
                                             </svg>
-                                            <div class="name" style="margin-left: 1.5rem">' . $specialist["name"] . '<span>' . $specialist["email"] . '</span></div>
+                                            <div class="name" style="margin-left: 1.5rem">
+                                            ' . (strToLower($_SESSION["username"]) === "admin" ? '<a href="employee.php?id=' . $person["id"] . '" class="text-primary-600">' . $person["name"] . '</a>' : ' . $person["name"] . ') . '
+                                            <span>ID: ' . $person["id"] . '</span></div>
                                         </div>
                                     </td>
-                                    <td>' . $specialist["phone"] . '</td>
-                                    <td>' . $specialist["type"] . '</td>
+                                    <td>' . $person["phone"] . '</td>
+                                    <td>' . $person["email"] . '</td>
+                                    <td>' . $person["job title"] . '<span>in ' . $person["department"] . '</span></td>
+                                    <td>' . $person["branch country"] . '<span>' . $person["branch postcode"] . '</span></td>
+                                    <td>' . $person["role"] . '</td>
                                     <td>
-                                        <div class="pill">' . ($specialist["available"] ? '<span class="green">Available</span>' : '<span class="red">Unavailable</span>') . '</div>
+                                        <div class="pill">' . (isset($person["available"]) ? $statuses[$person["available"]] : '-') . '</div>
                                     </td>
-                                    <td>' . $specialist["role"] . '</td>
                                 </tr>';
                             }
                             ?>

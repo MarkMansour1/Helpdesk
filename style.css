@@ -13,16 +13,25 @@ section {
   min-height: calc(100vh - 5rem);
 }
 
-ol,
 ul {
   list-style: none;
-}
-
-fieldset,
-ol,
-ul {
   margin: 0;
   padding: 0;
+}
+
+ol {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+ol li {
+  padding: 0.375rem 0.5rem;
+  color: #374151;
+}
+
+ol li::marker {
+  color: #5a67d8;
+  font-size: 0.875rem;
 }
 
 h1,
@@ -412,12 +421,17 @@ main {
   font-weight: 600;
   font-size: 0.75rem;
   line-height: 1.25rem;
-  padding: 0 0.5rem;
+  padding: 0 0.75rem;
 }
 
 .pill span.green {
   background-color: #def7ec;
   color: #03543f;
+}
+
+.pill span.orange {
+  background-color: #f5e5d4;
+  color: #9b6533;
 }
 
 .pill span.red {
@@ -586,18 +600,14 @@ header h2 {
 
 @media (min-width: 992px) {
   .container {
-    max-width: 80%;
+    max-width: 85%;
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
   .container {
-    max-width: 1500px;
+    max-width: 75%;
   }
-}
-
-.container-narrow {
-  max-width: 576px;
 }
 
 .grid {
@@ -608,52 +618,33 @@ header h2 {
       grid-template-columns: repeat(12, minmax(0, 1fr));
 }
 
-.col-1 {
-  grid-column: span 1 / span 1;
+.cols-2 {
+  -ms-grid-columns: (minmax(0, 1fr))[2];
+      grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.col-2 {
-  grid-column: span 2 / span 2;
+.cols-3 {
+  -ms-grid-columns: (minmax(0, 1fr))[3];
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.cols-4 {
+  -ms-grid-columns: (minmax(0, 1fr))[4];
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.cols-5 {
+  -ms-grid-columns: (minmax(0, 1fr))[5];
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.cols-6 {
+  -ms-grid-columns: (minmax(0, 1fr))[6];
+      grid-template-columns: repeat(6, minmax(0, 1fr));
 }
 
 .col-3 {
   grid-column: span 3 / span 3;
-}
-
-.col-4 {
-  grid-column: span 4 / span 4;
-}
-
-.col-5 {
-  grid-column: span 5 / span 5;
-}
-
-.col-6 {
-  grid-column: span 6 / span 6;
-}
-
-.col-7 {
-  grid-column: span 7 / span 7;
-}
-
-.col-8 {
-  grid-column: span 8 / span 8;
-}
-
-.col-9 {
-  grid-column: span 9 / span 9;
-}
-
-.col-10 {
-  grid-column: span 10 / span 10;
-}
-
-.col-11 {
-  grid-column: span 11 / span 11;
-}
-
-.col-12 {
-  grid-column: span 12 / span 12;
 }
 
 .text-center {
@@ -933,7 +924,7 @@ dl dd {
   color: #5a67d8;
   margin: 0.25rem 0 0;
   font-weight: 600;
-  font-size: 1.675rem;
+  font-size: 1.5rem;
   line-height: 1.5;
   line-height: 2rem;
 }

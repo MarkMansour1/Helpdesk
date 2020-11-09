@@ -14,57 +14,14 @@ include("components/header.php");
                 <a href="index.php" class="text-gray-500"><?php echo "<-" ?> Back to all problems</a>
             </div>
         </header>
-        <div class="grid">
-            <div class="col-3" style="max-width: 80%">
+        <div class="grid cols-4">
+            <div style="max-width: 80%">
                 <nav class="secondary-nav">
                     <a href="#"><?php echo $title ?></a>
-                    <a href="#caller">Caller Details</a>
                     <a href="#details">Problem Details</a>
                 </nav>
             </div>
-            <div class="col-9">
-                <div class="card scroll-target" id="caller">
-                    <div class="card-header">
-                        <h3>Caller Details</h3>
-                    </div>
-                    <div class="card-body">
-                        <form action="#" class="form-cols">
-                            <div class="form-group">
-                                <label for="call">Date Time</label>
-                                <input type="datetime-local" name="call">
-                            </div>
-                            <div class="form-group">
-                                <label for="caller">Caller</label>
-                                <select name="caller">
-                                    <?php
-                                    foreach ($personnel as $person) {
-                                        echo '<option value=' . $person["id"] . '>' . $person["name"] . '</>';
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="software">Software</label>
-                                <input type="text" name="software">
-                            </div>
-                            <div class="form-group">
-                                <label for="hardware">Hardware</label>
-                                <input type="text" name="hardware">
-                            </div>
-                            <div class="form-group">
-                                <label for="description">Problem description</label>
-                                <textarea name="description" rows="3"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="notes">Notes</label>
-                                <textarea name="notes" rows="3"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-lg">
-                                Add Problem
-                            </button>
-                        </form>
-                    </div>
-                </div>
+            <div class="col-3">
                 <div class="card scroll-target" id="details">
                     <div class="card-header">
                         <h3>Problem Details</h3>
@@ -72,34 +29,47 @@ include("components/header.php");
                     <div class="card-body">
                         <form action="#" class="form-cols">
                             <div class="form-group">
-                                <label for="call">Date Time</label>
-                                <input type="datetime-local" name="call">
+                                <label for="call-code">Call Code</label>
+                                <input type="text" name="call-code">
                             </div>
                             <div class="form-group">
-                                <label for="caller">Caller</label>
-                                <select name="caller">
-                                    <?php
-                                    foreach ($personnel as $person) {
-                                        echo '<option value=' . $person["id"] . '>' . $person["name"] . '</>';
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="software">Software</label>
-                                <input type="text" name="software">
+                                <label for="problem-type">Problem Type</label>
+                                <input type="text" name="problem-type">
                             </div>
                             <div class="form-group">
                                 <label for="hardware">Hardware</label>
                                 <input type="text" name="hardware">
                             </div>
                             <div class="form-group">
+                                <label for="software">Software</label>
+                                <input type="text" name="software">
+                            </div>
+                            <div class="form-group">
                                 <label for="description">Problem description</label>
                                 <textarea name="description" rows="3"></textarea>
                             </div>
                             <div class="form-group">
+                                <label for="problem-priority">Problem Priority</label>
+                                <select id="problem-priority" name="priorities">
+                                    <option value="low">Low</option>
+                                    <option value="high">High</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="local-specialist-needed">Is Local Specialist Needed</label>
+                                <input type="checkbox" name="local-specialist-needed" value="change to tick box">
+                            </div>
+                            <div class="form-group">
                                 <label for="notes">Notes</label>
                                 <textarea name="notes" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="problem-state">Problem State</label>
+                                <select id="problem-state" name="problem-states">
+                                    <option value="unsolved">Unsolved</option>
+                                    <option value="solution-suggested">Solution Suggested</option>
+                                    <option value="solved">Solved</option>
+                                </select>
                             </div>
                             <button type="submit" class="btn btn-lg">
                                 Add Problem

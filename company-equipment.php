@@ -37,22 +37,28 @@ include("components/header.php");
                         <table>
                             <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Author</th>
-                                    <th>Name</th>
-                                    <th>Version</th>
+                                    <th>Serial Number</th>
                                     <th>Type</th>
+                                    <th>Make</th>
+                                    <th>Model</th>
+                                    <th>Version</th>
+                                    <th>License</th>
+                                    <th>Developed</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
                                 foreach ($software as $sw) {
                                     echo '<tr class="filter-item">
-                                    <td class="text-primary-600">' . $sw["id"] . '</td>
-                                    <td>' . $sw["author"] . '</td>
-                                    <td>' . $sw["name"] . '</td>
-                                    <td>' . $sw["version"] . '</td>
+                                    <td class="text-gray-900">
+                                        ' . (strToLower($_SESSION["username"]) === "admin" ? '<a href="software.php?serial=' . $sw["serial number"] . '" class="text-primary-600">' . $sw["serial number"] . '</a>' : ' . $person["name"] . ') . '
+                                    </td>
                                     <td>' . $sw["type"] . '</td>
+                                    <td>' . $sw["make"] . '</td>
+                                    <td>' . $sw["model"] . '</td>
+                                    <td>' . $sw["version"] . '</td>
+                                    <td>' . ($sw["serial number"] > 200 ? 'Active' : 'Expired') . '</td>
+                                    <td>' . ($sw["in-house"] ? 'In-house' : 'Out of house') . '</td>
                                 </tr>';
                                 }
                                 ?>
@@ -63,20 +69,26 @@ include("components/header.php");
                         <table>
                             <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Manufacturer</th>
-                                    <th>Name</th>
+                                    <th>Serial Number</th>
                                     <th>Type</th>
+                                    <th>Make</th>
+                                    <th>Model</th>
+                                    <th>Version</th>
+                                    <th>Warranty</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
                                 foreach ($hardware as $hw) {
                                     echo '<tr class="filter-item">
-                                    <td class="text-primary-600">' . $hw["id"] . '</td>
-                                    <td>' . $hw["manufacturer"] . '</td>
-                                    <td>' . $hw["name"] . '</td>
+                                   <td class="text-gray-900">
+                                        ' . (strToLower($_SESSION["username"]) === "admin" ? '<a href="hardware.php?serial=' . $hw["serial number"] . '" class="text-primary-600">' . $hw["serial number"] . '</a>' : ' . $person["name"] . ') . '
+                                    </td>
                                     <td>' . $hw["type"] . '</td>
+                                    <td>' . $hw["make"] . '</td>
+                                    <td>' . $hw["model"] . '</td>
+                                    <td>' . $hw["version"] . '</td>
+                                    <td>' . ($hw["serial number"] > 150 ? 'Active' : 'Expired') . '</td>
                                 </tr>';
                                 }
                                 ?>

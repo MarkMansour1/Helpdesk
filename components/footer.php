@@ -22,15 +22,14 @@
   <script>
     function searchList() {
       // Finds the search related elements on the page
-      var input = document.getElementById('search');
-      var search = input.value.toLowerCase()
+      var search = document.getElementById('search').value.toLowerCase();
       var container = document.getElementById("filter-container");
       var items = container.getElementsByClassName('filter-item');
       var count = document.getElementById("filter-count");
       var total = 0;
 
       // Loops through every element marked as a filter item
-      for (let i in items) {
+      for (let i = 0; i < items.length; i++) {
         let value = items[i].textContent || items[i].innerText;
         // Matches the content with the applied filter and hides all the items that don't match the filter
         if (value.toLowerCase().indexOf(search) > -1) {
@@ -41,13 +40,11 @@
         }
       }
 
-      console.log(search);
-
       // Updates the total count on the page
       if (search.length > 0) {
-        document.getElementById("filter-count").innerHTML = "Showing " + total + " search result(s)";
+        count.innerHTML = "Showing " + total + " search result(s)";
       } else {
-        document.getElementById("filter-count").innerHTML = "";
+        count.innerHTML = "";
       }
     }
 

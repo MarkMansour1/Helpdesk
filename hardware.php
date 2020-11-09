@@ -6,14 +6,14 @@ else
     // header("location: index.php");
     $serial = 1;
 
-$title = "Software " . $serial;
+$title = "Hardware " . $serial;
 include("components/header.php");
 
 // Gets the correct problem using the id in the url. Replace this with a database query.
-$software = [];
-foreach ($software as $s) {
+$hardware = [];
+foreach ($hardware as $s) {
     if ($s["id"] == $id) {
-        $software = $s;
+        $hardware = $s;
     }
 }
 ?>
@@ -33,13 +33,13 @@ foreach ($software as $s) {
             <div style="max-width: 80%">
                 <nav class="secondary-nav">
                     <a href="#"><?php echo $title ?></a>
-                    <a href="#details">Software Details</a>
+                    <a href="#details">Hardware Details</a>
                 </nav>
             </div>
             <div class="col-3">
                 <div class="card scroll-target" id="details">
                     <div class="card-header">
-                        <h3>Software Details</h3>
+                        <h3>Hardware Details</h3>
                     </div>
                     <div class="card-body">
                         <form action="#" class="form-cols">
@@ -49,27 +49,27 @@ foreach ($software as $s) {
                             </div>
                             <div class="form-group">
                                 <label for="type">Type</label>
-                                <input type="text" name="type" value="Operating System">
+                                <input type="text" name="type" value="Printer">
                             </div>
                             <div class="form-group">
                                 <label for="make">Make</label>
-                                <input type="text" name="make" value="Microsoft">
+                                <input type="text" name="make" value="HP">
                             </div>
                             <div class="form-group">
                                 <label for="model">Model</label>
-                                <input type="text" name="model" value="Windows 10">
+                                <input type="text" name="model" value="HU125312">
                             </div>
                             <div class="form-group">
                                 <label for="version">Version</label>
-                                <input type="text" name="version" value="3.4">
+                                <input type="text" name="version" value="2">
                             </div>
                             <div class="form-group">
-                                <label for="licensestart">License start date</label>
-                                <input type="text" name="licensestart" value="17-03-2015">
+                                <label for="warrantystart">Warranty start date</label>
+                                <input type="text" name="warrantystart" value="08-02-2018">
                             </div>
                             <div class="form-group">
-                                <label for="licenseend">License end date</label>
-                                <input type="text" name="licenseend" value="17-03-2025">
+                                <label for="warrantyend">Warranty end date</label>
+                                <input type="text" name="warrantyend" value="08-03-2021">
                             </div>
                             <button type="submit" class="btn btn-lg">
                                 Save Changes

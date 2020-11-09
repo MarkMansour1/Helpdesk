@@ -21,9 +21,14 @@ $pages = [
         "users" => ["admin", "analyst", "operator", "specialist"]
     ),
     array(
-        "name" => "Specialists",
-        "link" => "specialists.php",
+        "name" => "Calls",
+        "link" => "calls.php",
         "users" => ["admin", "analyst", "operator"]
+    ),
+    array(
+        "name" => "Personnel",
+        "link" => "personnel.php",
+        "users" => ["admin", "analyst", "operator", "specialist"]
     ),
     array(
         "name" => "Company Equipment",
@@ -31,19 +36,19 @@ $pages = [
         "users" => ["admin", "analyst", "operator", "specialist"]
     ),
     array(
-        "name" => "Analytics",
-        "link" => "analytics.php",
+        "name" => "Staff Performance",
+        "link" => "staff-performance.php",
         "users" => ["admin", "analyst"]
     ),
     array(
-        "name" => "Operator Activity",
-        "link" => "operator-activity.php",
+        "name" => "Equipment Performance",
+        "link" => "equipment-performance.php",
         "users" => ["admin", "analyst"]
     ),
     array(
-        "name" => "Specialist Activity",
-        "link" => "specialist-activity.php",
-        "users" => ["admin", "analyst"]
+        "name" => "My Account",
+        "link" => "my-account.php",
+        "users" => ["admin", "analyst", "operator", "specialist"]
     ),
 ];
 ?>

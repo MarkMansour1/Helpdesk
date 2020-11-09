@@ -1,18 +1,18 @@
 <?php
 // Gets the problem ID from the url
-if (isset($_GET["id"]))
-    $id = $_GET["id"];
+if (isset($_GET["problemNumber"]))
+    $problemNumber = $_GET["problemNumber"];
 else
     // header("location: index.php");
-    $id = 1;
+    $problemNumber = 1;
 
-$title = "Problem " . $id;
+$title = "Problem " . $problemNumber;
 include("components/header.php");
 
 // Gets the correct problem using the id in the url. Replace this with a database query.
 $problem = [];
 foreach ($problems as $p) {
-    if ($p["id"] == $id) {
+    if ($p["problemNumber"] == $problemNumber) {
         $problem = $p;
     }
 }
@@ -29,8 +29,8 @@ foreach ($problems as $p) {
                 <a href="index.php" class="text-gray-500"><?php echo "<-" ?> Back to all problems</a>
             </div>
         </header>
-        <div class="grid">
-            <div class="col-3" style="max-width: 80%">
+        <div class="grid cols-4">
+            <div style="max-width: 80%">
                 <nav class="secondary-nav">
                     <a href="#"><?php echo $title ?></a>
                     <a href="#details">Problem Details</a>
@@ -38,7 +38,7 @@ foreach ($problems as $p) {
                     <a href="#update">New Update</a>
                 </nav>
             </div>
-            <div class="col-9">
+            <div class="col-3">
                 <div class="card scroll-target" id="details">
                     <div class="card-header">
                         <h3>Problem Details</h3>
@@ -46,16 +46,16 @@ foreach ($problems as $p) {
                     <div class="card-body">
                         <form action="#" class="form-cols">
                             <div class="form-group">
-                                <label for="id">Problem ID</label>
-                                <input type="text" name="id" value="<?php echo $id ?>" disabled>
+                                <label for="problemNumber">Problem Number</label>
+                                <input type="text" name="problemNumber" value="<?php echo $problemNumber ?>" disabled>
                             </div>
                             <div class="form-group">
-                                <label for="call">Call</label>
-                                <input type="text" name="call" value="Oct 3 2016, 9.00am">
+                                <label for="callCode">Call Code</label>
+                                <input type="text" name="callCode" value="187">
                             </div>
                             <div class="form-group">
-                                <label for="caller">Caller</label>
-                                <input type="text" name="caller" value="George Formby from Cleaning Dept., ext 23456">
+                                <label for="problem-type">Problem Type</label>
+                                <input type="text" name="problem-type" value="Hardware - Laptop Computer">
                             </div>
                             <div class="form-group">
                                 <label for="software">Software</label>
@@ -68,6 +68,24 @@ foreach ($problems as $p) {
                             <div class="form-group">
                                 <label for="description">Problem description</label>
                                 <textarea name="description" rows="3">Laptop running very slowly</textarea>
+                            </div>
+
+
+                            <!--                           Change from text to drop down box  -->
+                            <div class="form-group">
+                                <label for="problem-state">Problem State</label>
+                                <select id="problem-state" name="problem-states">
+                                    <option value="unsolved">Unsolved</option>
+                                    <option value="solution-suggested">Solution Suggested</option>
+                                    <option value="solved">Solved</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="problem-priority">Problem Priority</label>
+                                <select id="problem-priority" name="problem-priorities">
+                                    <option value="low">Low</option>
+                                    <option value="high">High</option>
+                                </select>
                             </div>
                             <button type="submit" class="btn btn-lg">
                                 Save Changes

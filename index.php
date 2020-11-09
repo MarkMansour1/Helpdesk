@@ -32,28 +32,33 @@ include("components/header.php");
                         <thead>
                             <tr>
                                 <th>Problem</th>
+                                <th>Type</th>
                                 <th>Specialist</th>
                                 <th>Last Update</th>
                                 <th>Status</th>
+                                <th>Priority</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
+                            $statuses = array(
+                                "Solved",
+                                "Solution Suggested",
+                                "Unsolved"
+                            );
                             foreach ($problems as $problem) {
                                 echo '<tr class="filter-item">
                                     <td>
-                                        <a href="/problem.php?id=' . $problem["id"] . '" class="text-primary-600">
-                                            ' . $problem["description"] . '
-                                            <span>in ' . $problem["category"] . '</span>
-                                        </a>
+                                    <a href="problem.php?problemNumber=' . $problem["problemNumber"] . '" class="text-primary-600">
+                                    ' . $problem["description"] . '
+                                    <span>Problem ' . $problem["problemNumber"] . '</span>
+                                    </a>
                                     </td>
+                                    <td>' . $problem["type"] . '</td>
                                     <td> ' . ($problem["specialist"] ? $problem["specialist"] : "-") . '</td>
                                     <td>' . $problem["date"] . '</td>
-                                    <td>
-                                        <div class="pill">
-                                            ' . ($problem["open"] ? '<span class="green">Case Open</span>' : '<span class="red">Case Closed</span>') . '
-                                        </div>
-                                    </td>
+                                    <td>' . $statuses[$problem["status"]] . '</td>
+                                    <td><div class="pill">' . (strtoLower($problem["problem-priority"]) === "high" ? '<span class="red">High</span>' : '<span class="green">Low</span>') . '</div></td>
                                 </tr>';
                             }
                             ?>
